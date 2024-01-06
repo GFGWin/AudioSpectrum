@@ -9,6 +9,7 @@ import AVFoundation
 
 protocol AudioSpectrumPlayerDelegate: AnyObject {
     func player(_ player: AudioSpectrumPlayer, didGenerateSpectrum spectra: [[Float]])
+    func player(didGenerateSpectrum spectra: [[Float]])
 }
 
 class AudioSpectrumPlayer {

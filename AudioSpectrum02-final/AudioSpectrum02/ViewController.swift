@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var trackTableView: UITableView!
     
     var player: AudioSpectrumPlayer!
-    
+    let record = AudioAnalyzer()
     private lazy var trackPaths: [String] = {
         var paths = Bundle.main.paths(forResourcesOfType: "mp3", inDirectory: nil)
         paths.sort()
@@ -26,9 +26,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        trackTableView.dataSource = self
+        
         player = AudioSpectrumPlayer()
         player.delegate = self
+        record.delegate = self;
     }
     override func viewDidLayoutSubviews() {
         let barSpace = spectrumView.frame.width / CGFloat(player.analyzer.frequencyBands * 3 - 1)
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trackPaths.count
     }
@@ -48,6 +49,40 @@ extension ViewController: UITableViewDataSource {
         cell.delegate = self
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        
+        let recordBtn = UIButton(type: .custom)
+        recordBtn.setTitle("start", for: .normal)
+        recordBtn.setTitle("end", for: .selected)
+        headerView.addSubview(recordBtn)
+        recordBtn.setTitleColor(.black, for: .normal)
+        recordBtn.setTitleColor(.red, for: .selected)
+        recordBtn.addTarget(self, action: #selector(startRecord(sender:)), for: .touchUpInside)
+        headerView.frame = CGRectMake(0, 0, 200, 40)
+        recordBtn.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
+        return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    
+    @objc func startRecord(sender:UIButton){
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            debugPrint("开始录音")
+            
+            
+            record.startAction()
+        } else {
+            record.stopAction()
+            debugPrint("结束录音")
+        }
+    }
+    
 }
 
 // MARK: TrackCellDelegate
@@ -71,6 +106,11 @@ extension ViewController: TrackCellDelegate {
 // MARK: SpectrumPlayerDelegate
 extension ViewController: AudioSpectrumPlayerDelegate {
     func player(_ player: AudioSpectrumPlayer, didGenerateSpectrum spectra: [[Float]]) {
+        DispatchQueue.main.async {
+            self.spectrumView.spectra = spectra
+        }
+    }
+    func player(didGenerateSpectrum spectra: [[Float]]) {
         DispatchQueue.main.async {
             self.spectrumView.spectra = spectra
         }

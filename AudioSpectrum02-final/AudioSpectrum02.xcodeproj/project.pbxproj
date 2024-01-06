@@ -19,6 +19,7 @@
 		4BE6B36C222FA89D0063A925 /* 01.Halcyon - Runaway (Feat. Valentina Franco) (Heuse Remix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6B369222FA89D0063A925 /* 01.Halcyon - Runaway (Feat. Valentina Franco) (Heuse Remix).mp3 */; };
 		4BE6B36D222FA89D0063A925 /* 03.Spektrum & Sara Skinner - Keep You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6B36A222FA89D0063A925 /* 03.Spektrum & Sara Skinner - Keep You.mp3 */; };
 		4BE6B36E222FA89D0063A925 /* 02.Ellis - Clear My Head (Radio Edit) [NCS].mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6B36B222FA89D0063A925 /* 02.Ellis - Clear My Head (Radio Edit) [NCS].mp3 */; };
+		51D94BB72B465BCB003FA0A6 /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D94BB62B465BCB003FA0A6 /* AudioAnalyzer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4BE6B369222FA89D0063A925 /* 01.Halcyon - Runaway (Feat. Valentina Franco) (Heuse Remix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01.Halcyon - Runaway (Feat. Valentina Franco) (Heuse Remix).mp3"; sourceTree = "<group>"; };
 		4BE6B36A222FA89D0063A925 /* 03.Spektrum & Sara Skinner - Keep You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03.Spektrum & Sara Skinner - Keep You.mp3"; sourceTree = "<group>"; };
 		4BE6B36B222FA89D0063A925 /* 02.Ellis - Clear My Head (Radio Edit) [NCS].mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02.Ellis - Clear My Head (Radio Edit) [NCS].mp3"; sourceTree = "<group>"; };
+		51D94BB62B465BCB003FA0A6 /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				4B87BCE421D515F600732679 /* ViewController.swift */,
 				4BC64F7521D53B9A00EE2DB7 /* AudioSpectrumPlayer.swift */,
 				4B11626C21F01C970012C977 /* RealtimeAnalyzer.swift */,
+				51D94BB62B465BCB003FA0A6 /* AudioAnalyzer.swift */,
 			);
 			path = AudioSpectrum02;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				4B11626D21F01C970012C977 /* RealtimeAnalyzer.swift in Sources */,
 				4B87BCE521D515F600732679 /* ViewController.swift in Sources */,
 				4BC64F7621D53B9A00EE2DB7 /* AudioSpectrumPlayer.swift in Sources */,
+				51D94BB72B465BCB003FA0A6 /* AudioAnalyzer.swift in Sources */,
 				4B87BCE321D515F600732679 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,13 +332,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = EXLJBGJL62;
 				INFOPLIST_FILE = "$(SRCROOT)/AudioSpectrum02/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = potato04.AudioSpectrum02;
+				PRODUCT_BUNDLE_IDENTIFIER = potato04.AudioSpectrum02.23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,13 +351,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = EXLJBGJL62;
 				INFOPLIST_FILE = "$(SRCROOT)/AudioSpectrum02/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = potato04.AudioSpectrum02;
+				PRODUCT_BUNDLE_IDENTIFIER = potato04.AudioSpectrum02.23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
